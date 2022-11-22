@@ -1,5 +1,6 @@
 import { Persona } from "./persona";
 
-let persona = new Persona("Misaki",1752794063);
+let persona1 = new Persona("Misaki",1752794063);
 
-persona.mostrarPersona()
+console.log(persona1);
+console.log('algo')
