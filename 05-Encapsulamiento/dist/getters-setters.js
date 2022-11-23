@@ -1,9 +1,9 @@
 "use strict";
 class Student {
-    constructor(nm, sm, cs) {
-        this.name = nm;
-        this.semester = sm;
-        this.course = cs;
+    constructor() {
+        this.name = 'Algo';
+        this.semester = 6;
+        this.course = 'Inglés';
     }
     // getters
     get courses() {
@@ -27,7 +27,7 @@ class Student {
     }
 }
 // instanciar objetos
-let student = new Student("Algo más", 4, "Web Development");
+let student = new Student();
 // uso de setters
 student.courses = "Desarrollo de software";
 student.names = "Isak Gómez";

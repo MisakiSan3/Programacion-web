@@ -1,12 +1,8 @@
 class Student {
-  private name: string;
-  private semester: number;
-  private course: string;
-  constructor(nm: string, sm: number, cs: string) {
-    this.name = nm;
-    this.semester = sm;
-    this.course = cs;
-  }
+  private name: string = 'Algo';
+  private semester: number = 6;
+  private course: string = 'Inglés';
+  
   // getters
   public get courses() {
     return this.course;
@@ -32,7 +28,7 @@ class Student {
 }
 
 // instanciar objetos
-let student = new Student("Algo más", 4, "Web Development");
+let student = new Student();
 
 // uso de setters
 student.courses = "Desarrollo de software";
