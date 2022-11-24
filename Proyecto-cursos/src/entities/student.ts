@@ -1,7 +1,7 @@
 import { Person } from "./person";
 
 export interface Student extends Person {
-     registrationNumber: number;
+    enrollment: number;
      carrer: string;
      carrerLevel: number;
 
