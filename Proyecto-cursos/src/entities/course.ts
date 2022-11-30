@@ -1,5 +1,5 @@
 export interface Course {
-    numberStudents: number;
-    teacher:   string;
+    numberHours: number;
+    nameCourse:   string;
     paralel: string;
 }

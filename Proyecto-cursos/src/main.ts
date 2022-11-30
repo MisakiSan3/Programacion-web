@@ -1,6 +1,7 @@
 import { Student } from "./entities/student";
 import { Teacher } from "./entities/teacher";
 import { Course } from "./entities/course";
+import { Activitie } from "./entities/activities";
 
 function readFromHtml(id: string) {
   return (<HTMLInputElement>document.getElementById(id)).value;
@@ -30,7 +31,7 @@ function addTeacher() {
     adress: readFromHtml("adressTeacher"),
     gradeLevel: readFromHtml("gradeLevel"),
     title: readFromHtml("title"),
-    class: readFromHtml("class"),
+    area: readFromHtml("area"),
   };
   teachers.push(currentTeacher);
   console.log(currentTeacher);
@@ -39,11 +40,24 @@ function addTeacher() {
 function addCourse() {
   let courses: Course[] = [];
   let currentCourse: Course = {
-    numberStudents: parseInt(readFromHtml("numberStudents")),
-    teacher: readFromHtml("teacher"),
+    numberHours: parseInt(readFromHtml("numberHours")),
+    nameCourse: readFromHtml("nameCourse"),
     paralel: readFromHtml("paralel")
   }
   courses.push(currentCourse);
   console.log(currentCourse)
 
 }
+
+function addActivitie() {
+  let activities: Activitie[] = [];
+  let currentActivitie: Activitie = {
+    nameActivities: readFromHtml("nameActivities"),
+  }
+  activities.push(currentActivitie);
+  console.log(currentActivitie)
+
+}
+
+
+

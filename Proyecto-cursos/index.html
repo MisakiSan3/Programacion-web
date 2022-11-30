@@ -26,7 +26,7 @@
       <div class="card-header">Datos Estudiante</div>
       <div class="card-body">
         <form action="">
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="name">Nombre:</label>
               <input
@@ -47,7 +47,7 @@
               />
             </div>
           </div>
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="mail">Email:</label>
               <input
@@ -70,7 +70,7 @@
               />
             </div>
           </div>
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="adress">Dirección:</label>
               <input
@@ -82,30 +82,36 @@
             </div>
             <div class="col-6">
               <label class="fw-semibold" for="career">Carrera:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="career"
-                name="career"
-              />
+              <select id="career" name="career" class="form-control my-3">
+                <option value="Desarrollo de software">
+                  Desarrollo de software
+                </option>
+                <option value="Modas">Modas</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Turismo">Turismo</option>
+              </select>
             </div>
           </div>
 
-          <div class="row justifyContent-center">
+          <div class="row justify-content-center">
             <div class="col-6">
               <label class="fw-semibold" for="careerLevel">Nivel:</label>
-              <input
+              <select
                 class="form-control my-3"
-                type="text"
-                id="careerLevel"
                 name="careerLevel"
-              />
+                id="careerLevel"
+              >
+                <option value="primero">Primero</option>
+                <option value="segundo">Segundo</option>
+                <option value="tercero">Tercero</option>
+                <option value="cuarto">Cuarto</option>
+                <option value="quinto">Quinto</option>
+              </select>
             </div>
-            <div class="col-6"></div>
           </div>
         </form>
       </div>
-      <div class="card-footer text-muted">
+      <div class="text-end card-footer text-muted">
         <button onclick="addStudent()" class="btn btn-primary" type="submit">
           Guardar
         </button>
@@ -117,7 +123,7 @@
       <div class="card-header">Datos licenciado</div>
       <div class="card-body">
         <form action="">
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="nameTeacher">Nombre:</label>
               <input
@@ -140,7 +146,7 @@
               />
             </div>
           </div>
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="mailTeacher">Email:</label>
               <input
@@ -160,7 +166,7 @@
               />
             </div>
           </div>
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="gradeLevel"
                 >Nivel de educaciòn:</label
@@ -173,16 +179,17 @@
               />
             </div>
             <div class="col-6">
-              <label class="fw-semibold" for="class">Asignatura:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="class"
-                name="class"
-              />
+              <label class="fw-semibold" for="area">Asignatura:</label>
+              <select class="form-control my-3" name="area" id="area">
+                <option value="Desarrollo de software">
+                  Desarrollo de software
+                </option>
+                <option value="Diseño de modas">Diseño de modas</option>
+                <option value="Marketing">Marketing</option>
+              </select>
             </div>
           </div>
-          <div class="row justifyContent-center">
+          <div class="row justify-content-center">
             <div class="col-6">
               <label class="fw-semibold" for="adressTeacher">Dirección:</label>
               <input
@@ -195,7 +202,7 @@
           </div>
         </form>
       </div>
-      <div class="card-footer text-muted">
+      <div class="text-end card-footer text-muted">
         <button onclick="addTeacher()" class="btn btn-primary" type="submit">
           Guardar
         </button>
@@ -207,7 +214,7 @@
       <div class="card-header">Datos curso</div>
       <div class="card-body">
         <form action="">
-          <div class="row justifyContent-between">
+          <div class="row justify-content-between">
             <div class="col-6">
               <label class="fw-semibold" for="paralel">Paralelo:</label>
               <input
@@ -218,38 +225,62 @@
               />
             </div>
             <div class="col-6">
-              <label class="fw-semibold" for="teacher"
-                >Docente:</label
-              >
-              <input
-                class="form-control my-3"
-                min="0"
-                type="number"
-                id="teacher"
-                name="teacher"
-              />
-            </div>
-          </div>
-          <div class="row justifyContent-between">
-            <div class="col-6">
-              <label class="fw-semibold" for="numberStudents">Número de estudiantes:</label>
+              <label class="fw-semibold" for="nameCourse">Nombre del curso:</label>
               <input
                 class="form-control my-3"
                 type="text"
-                id="numberStudents"
-                name="numberStudents"
+                id="nameCourse"
+                name="nameCourse"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <label class="fw-semibold" for="numberHours"
+                >Número de horas:</label
+              >
+              <input
+                min="0"
+                class="form-control my-3"
+                type="number"
+                id="numberHours"
+                name="numberHours"
               />
             </div>
           </div>
         </form>
       </div>
-      <div class="card-footer text-muted">
+      <div class="text-end card-footer text-muted">
         <button onclick="addCourse()" class="btn btn-primary" type="submit">
           Guardar
         </button>
       </div>
     </div>
 
+    <p class="h2 text-center mb-3">Actividades</p>
+    <div class="card mx-5 mb-3">
+      <div class="card-header">Datos actividades</div>
+      <div class="card-body">
+        <form action="">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <label class="fw-semibold" for="nameActivities">Nombre:</label>
+              <input
+                class="form-control my-3"
+                type="text"
+                id="nameActivities"
+                name="nameActivities"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="text-end card-footer text-muted">
+        <button onclick="addActivitie()" class="btn btn-primary" type="submit">
+          Guardar
+        </button>
+      </div>
+    </div>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script
