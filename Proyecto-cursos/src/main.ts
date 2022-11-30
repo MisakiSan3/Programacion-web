@@ -1,17 +1,36 @@
 import { Student } from "./entities/student";
+import { Teacher } from "./entities/teacher";
 
-let students: Student[] = [];
+function readFromHtml(id: string) {
+  return (<HTMLInputElement>document.getElementById(id)).value;
+}
 
-function addStudent():void{
-    let currentStudent : Student = {
-        name: (<HTMLInputElement>document.getElementById('name')).value,
-        identification: parseInt((<HTMLInputElement>document.getElementById('identification')).value),
-        gmail: (<HTMLInputElement>document.getElementById('mail')).value,
-        adress: (<HTMLInputElement>document.getElementById('adress')).value,
-        enrollment: parseInt((<HTMLInputElement>document.getElementById('enrollment')).value),
-        carrer: (<HTMLInputElement>document.getElementById('carrer')).value,
-        carrerLevel: parseInt((<HTMLInputElement>document.getElementById('carrerLevel')).value),
-    }
-    students.push(currentStudent);
-    console.log('sep')
-};
+function addStudent() {
+  let students: Student[] = [];
+  let currentStudent: Student = {
+    name: readFromHtml("name"),
+    identification: parseInt(readFromHtml("identification")),
+    gmail: readFromHtml("mail"),
+    adress: readFromHtml("adress"),
+    enrollment: parseInt(readFromHtml("enrollment")),
+    carrer: readFromHtml("career"),
+    carrerLevel: parseInt(readFromHtml("careerLevel")),
+  };
+  students.push(currentStudent);
+  console.log(currentStudent);
+}
+
+function addTeacher() {
+  let teachers: Teacher[] = [];
+  let currentTeacher: Teacher = {
+    name: readFromHtml("nameTeacher"),
+    identification: parseInt(readFromHtml("identificationTeacher")),
+    gmail: readFromHtml("mailTeacher"),
+    adress: readFromHtml("adressTeacher"),
+    gradeLevel: readFromHtml("gradeLevel"),
+    title: readFromHtml("title"),
+    class: readFromHtml("class"),
+  };
+  teachers.push(currentTeacher);
+  console.log(currentTeacher);
+}
