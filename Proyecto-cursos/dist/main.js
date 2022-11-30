@@ -31,3 +31,13 @@ function addTeacher() {
     teachers.push(currentTeacher);
     console.log(currentTeacher);
 }
+function addCourse() {
+    let courses = [];
+    let currentCourse = {
+        numberStudents: parseInt(readFromHtml("numberStudents")),
+        teacher: readFromHtml("teacher"),
+        paralel: readFromHtml("paralel")
+    };
+    courses.push(currentCourse);
+    console.log(currentCourse);
+}
