@@ -342,3 +342,47 @@ function mostraravioneta(avioneta: Avioneta) {
   avioneta.mostrarLongitudAla();
 }
 console.log(mostraravioneta(avioneta));
+
+
+class Persona {
+	nombre: string = '';
+	apellido: string = '';
+	edad: number = 0;
+	
+	Presentacion(){
+console.log('Mi nombre es ' + this.nombre +' ' + this.apellido + 'y tengo '+ this.edad + 'años' )
+};
+};
+
+class Programador {
+	bebidaFavorita: string = 'Café';
+
+BebidaFavorita(){
+	console.log('Por cierto mi bebida favorita es: ' + this.bebidaFavorita)
+};
+
+};
+class licenciadoProgramacion {
+  materia: string = 'Programación orientada a objetos';
+}
+
+
+function applyMixins(derivedCtor: any, constructors: any[]) {
+  constructors.forEach((baseCtor) => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+      Object.defineProperty(
+        derivedCtor.prototype,
+        name,
+        Object.getOwnPropertyDescriptor(baseCtor.prototype, name) ||
+          Object.create(null)
+      );
+    });
+  });
+}
+
+applyMixins(licenciadoProgramacion, [Persona, Programador]);
+
+
+
+
+
