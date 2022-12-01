@@ -20,14 +20,15 @@
   </head>
 
   <body>
-    <p class="h2 text-center mb-3">Estudiante</p>
-
+    <div class="row justify-content-between">
+      <div class="col-6 col-xs-12">
+        <p class="h2 text-center  mb-3">Estudiante</p>
     <div class="card mx-5 mb-5">
       <div class="card-header">Datos Estudiante</div>
       <div class="card-body">
         <form action="">
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="name">Nombre:</label>
               <input
                 class="form-control my-3"
@@ -36,7 +37,7 @@
                 name="name"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="identification">Cedula:</label>
               <input
                 class="form-control my-3"
@@ -48,7 +49,7 @@
             </div>
           </div>
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="mail">Email:</label>
               <input
                 class="form-control my-3"
@@ -57,7 +58,7 @@
                 name="mail"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="enrollment"
                 >Numero matricula:</label
               >
@@ -71,7 +72,7 @@
             </div>
           </div>
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="adress">Dirección:</label>
               <input
                 class="form-control my-3"
@@ -80,7 +81,7 @@
                 name="adress"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="career">Carrera:</label>
               <select id="career" name="career" class="form-control my-3">
                 <option value="Desarrollo de software">
@@ -91,10 +92,11 @@
                 <option value="Turismo">Turismo</option>
               </select>
             </div>
-          </div>
+            </div>
+          
 
           <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="careerLevel">Nivel:</label>
               <select
                 class="form-control my-3"
@@ -111,20 +113,25 @@
           </div>
         </form>
       </div>
-      <div class="text-end card-footer text-muted">
+      <div class="text-end d-inline card-footer text-muted">
+        <button onclick="eraseData()" class="btn btn-danger" type="submit">
+          Borrar
+        </button>
         <button onclick="addStudent()" class="btn btn-primary" type="submit">
           Guardar
         </button>
       </div>
     </div>
-
+  </div>  
+  
+  <div class="col-6 col-xs-12">
     <p class="h2 text-center mb-3">Licenciado</p>
     <div class="card mx-5 mb-3">
       <div class="card-header">Datos licenciado</div>
       <div class="card-body">
         <form action="">
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="nameTeacher">Nombre:</label>
               <input
                 class="form-control my-3"
@@ -133,7 +140,7 @@
                 name="nameTeacher"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="identificationTeacher"
                 >Cedula:</label
               >
@@ -147,7 +154,7 @@
             </div>
           </div>
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="mailTeacher">Email:</label>
               <input
                 class="form-control my-3"
@@ -156,7 +163,7 @@
                 name="mailTeacher"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="title">Tìtulo:</label>
               <input
                 class="form-control my-3"
@@ -167,7 +174,7 @@
             </div>
           </div>
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="gradeLevel"
                 >Nivel de educaciòn:</label
               >
@@ -178,19 +185,14 @@
                 name="gradeLevel"
               />
             </div>
-            <div class="col-6">
-              <label class="fw-semibold" for="area">Asignatura:</label>
+            <div class="col-6 col-xs-12">
+              <label class="fw-semibold" for="area">Área:</label>
               <select class="form-control my-3" name="area" id="area">
-                <option value="Desarrollo de software">
-                  Desarrollo de software
-                </option>
-                <option value="Diseño de modas">Diseño de modas</option>
-                <option value="Marketing">Marketing</option>
               </select>
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="adressTeacher">Dirección:</label>
               <input
                 class="form-control my-3"
@@ -202,20 +204,26 @@
           </div>
         </form>
       </div>
-      <div class="text-end card-footer text-muted">
-        <button onclick="addTeacher()" class="btn btn-primary" type="submit">
-          Guardar
+      <div class="text-end d-inline card-footer text-muted">
+        <button onclick="eraseData()" class="btn btn-danger" type="submit">
+          Borrar
         </button>
-      </div>
-    </div>
-
+    <button onclick="addTeacher()" class="btn btn-primary" type="submit">
+      Guardar
+    </button>
+  </div>
+  </div>
+ </div>
+</div>
+    <div class="row mb-3 justify-content-between">
+    <div class="col-6 col-xs-12">
     <p class="h2 text-center mb-3">Cursos</p>
     <div class="card mx-5 mb-3">
       <div class="card-header">Datos curso</div>
       <div class="card-body">
         <form action="">
           <div class="row justify-content-between">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="paralel">Paralelo:</label>
               <input
                 class="form-control my-3"
@@ -224,7 +232,7 @@
                 name="paralel"
               />
             </div>
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="nameCourse">Nombre del curso:</label>
               <input
                 class="form-control my-3"
@@ -235,7 +243,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="numberHours"
                 >Número de horas:</label
               >
@@ -250,20 +258,24 @@
           </div>
         </form>
       </div>
-      <div class="text-end card-footer text-muted">
-        <button onclick="addCourse()" class="btn btn-primary" type="submit">
-          Guardar
+      <div class="text-end d-inline card-footer text-muted">
+        <button onclick="eraseData()" class="btn btn-danger" type="submit">
+          Borrar
         </button>
-      </div>
+    <button onclick="addCoutse()" class="btn btn-primary" type="submit">
+      Guardar
+    </button>
+  </div>
     </div>
-
+  </div>
+    <div class="col-6 col-xs-12">
     <p class="h2 text-center mb-3">Actividades</p>
     <div class="card mx-5 mb-3">
       <div class="card-header">Datos actividades</div>
       <div class="card-body">
         <form action="">
           <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 col-xs-12">
               <label class="fw-semibold" for="nameActivities">Nombre:</label>
               <input
                 class="form-control my-3"
@@ -275,12 +287,84 @@
           </div>
         </form>
       </div>
-      <div class="text-end card-footer text-muted">
+      <div class="text-end d-inline card-footer text-muted">
+            <button onclick="eraseData()" class="btn btn-danger" type="submit">
+              Borrar
+            </button>
         <button onclick="addActivitie()" class="btn btn-primary" type="submit">
           Guardar
         </button>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="row mb-3 justify-content-between">
+  <div class="col-6 col-xs-12">
+  <p class="h2 text-center mb-3">Libro de notas</p>
+  <div class="card mx-5 mb-3">
+    <div class="card-header">Datos de libro</div>
+    <div class="card-body">
+      <form action="">
+        <div class="row justify-content-between">
+          <div class="col-6 col-xs-12">
+            <label class="fw-semibold" for="course">Curso:</label>
+            <select class="form-control my-3" name="course" id="coursegradeBook">
+            </select>
+          </div>
+          <div class="col-6 col-xs-12">
+            <label class="fw-semibold" for="activitiegradeBook">Actividad:</label>
+            <input
+              class="form-control my-3"
+              type="text"
+              id="activitiegradeBook"
+              name="activitiegradeBook"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-6 col-xs-12">
+            <label class="fw-semibold" for="maximunGrade"
+              >Nota máxima:</label
+            >
+            <input
+              min="0"
+              class="form-control my-3"
+              type="number"
+              id="maximunGrade"
+              name="maximunGrade"
+            />
+          </div>
+          <div class="col-6 col-xs-12">
+            <label class="fw-semibold" for="value"
+              >Valor</label
+            >
+            <input
+              class="form-control my-3"
+              type="text"
+              id="value"
+              name="value"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="text-end d-inline card-footer text-muted">
+      <button onclick="eraseData()" class="btn btn-danger" type="submit">
+        Borrar
+      </button>
+      <button onclick="addGradeBook()" class="btn btn-primary" type="submit">
+        Guardar
+      </button>
+    </div>
+  </div>
+</div>
+  
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-2 text-center"><button onclick="eraseData()" class="btn btn-danger">Borrar Datos</button></div>
+</div>
 
     <!-- Bootstrap JavaScript Libraries -->
     <script

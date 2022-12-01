@@ -1,10 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+let students = [];
+let teachers = [];
+let courses = [];
+let activities = [];
+let gradeBookSetups = [];
+var CourseEnum;
+(function (CourseEnum) {
+    CourseEnum["Programaci\u00F3n"] = "Programaci\u00F3n visual";
+    CourseEnum["BaseDatos"] = "Base de datos";
+    CourseEnum["Metodologias"] = "Metodolog\u00EDas";
+})(CourseEnum || (CourseEnum = {}));
+var AreaEnum;
+(function (AreaEnum) {
+    AreaEnum["DesarrolloSoftware"] = "Desarrrollo de software";
+    AreaEnum["Dise\u00F1oModas"] = "Dise\u00F1o de modas";
+    AreaEnum["Marketing"] = "Marketing";
+})(AreaEnum || (AreaEnum = {}));
 function readFromHtml(id) {
     return document.getElementById(id).value;
 }
 function addStudent() {
-    let students = [];
     let currentStudent = {
         name: readFromHtml("name"),
         identification: parseInt(readFromHtml("identification")),
@@ -15,10 +31,9 @@ function addStudent() {
         carrerLevel: parseInt(readFromHtml("careerLevel")),
     };
     students.push(currentStudent);
-    console.log(currentStudent);
+    console.table(students);
 }
 function addTeacher() {
-    let teachers = [];
     let currentTeacher = {
         name: readFromHtml("nameTeacher"),
         identification: parseInt(readFromHtml("identificationTeacher")),
@@ -26,18 +41,49 @@ function addTeacher() {
         adress: readFromHtml("adressTeacher"),
         gradeLevel: readFromHtml("gradeLevel"),
         title: readFromHtml("title"),
-        class: readFromHtml("class"),
+        area: readFromHtml("area"),
     };
     teachers.push(currentTeacher);
-    console.log(currentTeacher);
+    initSelect("area", AreaEnum);
 }
 function addCourse() {
-    let courses = [];
     let currentCourse = {
-        numberStudents: parseInt(readFromHtml("numberStudents")),
-        teacher: readFromHtml("teacher"),
+        numberHours: parseInt(readFromHtml("numberHours")),
+        nameCourse: readFromHtml("nameCourse"),
         paralel: readFromHtml("paralel")
     };
     courses.push(currentCourse);
-    console.log(currentCourse);
+    console.table(courses);
+}
+function addGradeBook() {
+    let currentGradeBookSetup = {
+        course: readFromHtml("coursegradeBook"),
+        activitie: readFromHtml("activitiegradeBook"),
+        value: readFromHtml("value"),
+        maximunGrade: parseInt(readFromHtml("maximunGrade")),
+    };
+    gradeBookSetups.push(currentGradeBookSetup);
+    console.table(gradeBookSetups);
+    initSelect("coursegradeBook", CourseEnum);
+}
+function addActivitie() {
+    let currentActivitie = {
+        nameActivities: readFromHtml("nameActivities"),
+    };
+    activities.push(currentActivitie);
+    console.table(activities);
+}
+function initSelect(idInput, enumerator) {
+    let areaTeacher = document.getElementById(idInput);
+    let enumArray = Object.values(enumerator);
+    enumArray.forEach(value => {
+        let option = document.createElement("option");
+        option.value = value;
+        option.text = value;
+        areaTeacher.add(option);
+    });
+}
+function eraseData() {
+    localStorage.clear();
+    console.log(localStorage.length);
 }
