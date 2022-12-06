@@ -1,386 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <title>Proyecto cursos</title>
-  </head>
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <body>
-    <div class="row justify-content-between">
-      <div class="col-6 col-xs-12">
-        <p class="h2 text-center  mb-3">Estudiante</p>
-    <div class="card mx-5 mb-5">
-      <div class="card-header">Datos Estudiante</div>
-      <div class="card-body">
-        <form action="">
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="name">Nombre:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="name"
-                name="name"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="identification">Cedula:</label>
-              <input
-                class="form-control my-3"
-                min="0"
-                type="number"
-                id="identification"
-                name="identification"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="mail">Email:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="mail"
-                name="mail"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="enrollment"
-                >Numero matricula:</label
-              >
-              <input
-                class="form-control my-3"
-                min="0"
-                type="number"
-                id="enrollment"
-                name="enrollment"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="adress">Dirección:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="adress"
-                name="adress"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="career">Carrera:</label>
-              <select id="career" name="career" class="form-control my-3">
-                <option value="Desarrollo de software">
-                  Desarrollo de software
-                </option>
-                <option value="Modas">Modas</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Turismo">Turismo</option>
-              </select>
-            </div>
-            </div>
-          
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <title>Proyecto cursos</title>
+</head>
 
-          <div class="row justify-content-center">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="careerLevel">Nivel:</label>
-              <select
-                class="form-control my-3"
-                name="careerLevel"
-                id="careerLevel"
-              >
-                <option value="primero">Primero</option>
-                <option value="segundo">Segundo</option>
-                <option value="tercero">Tercero</option>
-                <option value="cuarto">Cuarto</option>
-                <option value="quinto">Quinto</option>
-              </select>
+<body>
+  <div class="row justify-content-between">
+    <div class="col-6 col-xs-12">
+      <p class="h2 text-center  mb-3">Estudiante</p>
+      <div class="card mx-5 mb-5">
+        <div class="card-header">Datos Estudiante</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="name">Nombre:</label>
+                <input class="form-control my-3" type="text" id="name" name="name" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="identification">Cedula:</label>
+                <input class="form-control my-3" min="0" type="number" id="identification" name="identification" />
+              </div>
             </div>
-          </div>
-        </form>
-      </div>
-      <div class="text-end d-inline card-footer text-muted">
-        <button onclick="eraseData()" class="btn btn-danger" type="submit">
-          Borrar
-        </button>
-        <button onclick="addStudent()" class="btn btn-primary" type="submit">
-          Guardar
-        </button>
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="mail">Email:</label>
+                <input class="form-control my-3" type="text" id="mail" name="mail" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="enrollment">Numero matricula:</label>
+                <input class="form-control my-3" min="0" type="number" id="enrollment" name="enrollment" />
+              </div>
+            </div>
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="adress">Dirección:</label>
+                <input class="form-control my-3" type="text" id="adress" name="adress" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="career">Carrera:</label>
+                <select id="career" name="career" class="form-control my-3">
+                  <option value="Desarrollo de software">
+                    Desarrollo de software
+                  </option>
+                  <option value="Modas">Modas</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Turismo">Turismo</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="careerLevel">Nivel:</label>
+                <select class="form-control my-3" name="careerLevel" id="careerLevel">
+                  <option value="primero">Primero</option>
+                  <option value="segundo">Segundo</option>
+                  <option value="tercero">Tercero</option>
+                  <option value="cuarto">Cuarto</option>
+                  <option value="quinto">Quinto</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end d-inline card-footer text-muted">
+          <button onclick="eraseData()" class="btn btn-danger" type="submit">
+            Borrar
+          </button>
+          <button onclick="addStudent()" class="btn btn-primary" type="submit">
+            Guardar
+          </button>
+        </div>
       </div>
     </div>
-  </div>  
-  
-  <div class="col-6 col-xs-12">
-    <p class="h2 text-center mb-3">Licenciado</p>
-    <div class="card mx-5 mb-3">
-      <div class="card-header">Datos licenciado</div>
-      <div class="card-body">
-        <form action="">
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="nameTeacher">Nombre:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="nameTeacher"
-                name="nameTeacher"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="identificationTeacher"
-                >Cedula:</label
-              >
-              <input
-                class="form-control my-3"
-                min="0"
-                type="number"
-                id="identificationTeacher"
-                name="identificationTeacher"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="mailTeacher">Email:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="mailTeacher"
-                name="mailTeacher"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="title">Tìtulo:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="title"
-                name="title"
-              />
-            </div>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="gradeLevel"
-                >Nivel de educaciòn:</label
-              >
-              <input
-                class="form-control my-3"
-                type="text"
-                id="gradeLevel"
-                name="gradeLevel"
-              />
-            </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="area">Área:</label>
-              <select class="form-control my-3" name="area" id="area">
-              </select>
-            </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="adressTeacher">Dirección:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="adressTeacher"
-                name="adressTeacher"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="text-end d-inline card-footer text-muted">
-        <button onclick="eraseData()" class="btn btn-danger" type="submit">
-          Borrar
-        </button>
-    <button onclick="addTeacher()" class="btn btn-primary" type="submit">
-      Guardar
-    </button>
-  </div>
-  </div>
- </div>
-</div>
-    <div class="row mb-3 justify-content-between">
+
     <div class="col-6 col-xs-12">
-    <p class="h2 text-center mb-3">Cursos</p>
-    <div class="card mx-5 mb-3">
-      <div class="card-header">Datos curso</div>
-      <div class="card-body">
-        <form action="">
-          <div class="row justify-content-between">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="paralel">Paralelo:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="paralel"
-                name="paralel"
-              />
+      <p class="h2 text-center mb-3">Licenciado</p>
+      <div class="card mx-5 mb-3">
+        <div class="card-header">Datos licenciado</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="nameTeacher">Nombre:</label>
+                <input class="form-control my-3" type="text" id="nameTeacher" name="nameTeacher" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="identificationTeacher">Cedula:</label>
+                <input class="form-control my-3" min="0" type="number" id="identificationTeacher"
+                  name="identificationTeacher" />
+              </div>
             </div>
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="nameCourse">Nombre del curso:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="nameCourse"
-                name="nameCourse"
-              />
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="mailTeacher">Email:</label>
+                <input class="form-control my-3" type="text" id="mailTeacher" name="mailTeacher" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="title">Tìtulo:</label>
+                <input class="form-control my-3" type="text" id="title" name="title" />
+              </div>
             </div>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="numberHours"
-                >Número de horas:</label
-              >
-              <input
-                min="0"
-                class="form-control my-3"
-                type="number"
-                id="numberHours"
-                name="numberHours"
-              />
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="gradeLevel">Nivel de educaciòn:</label>
+                <input class="form-control my-3" type="text" id="gradeLevel" name="gradeLevel" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="area">Área:</label>
+                <select class="form-control my-3" name="area" id="area">
+                </select>
+              </div>
             </div>
-          </div>
-        </form>
+            <div class="row justify-content-center">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="adressTeacher">Dirección:</label>
+                <input class="form-control my-3" type="text" id="adressTeacher" name="adressTeacher" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end d-inline card-footer text-muted">
+          <button onclick="eraseData()" class="btn btn-danger" type="submit">
+            Borrar
+          </button>
+          <button onclick="addTeacher()" class="btn btn-primary" type="submit">
+            Guardar
+          </button>
+        </div>
       </div>
-      <div class="text-end d-inline card-footer text-muted">
-        <button onclick="eraseData()" class="btn btn-danger" type="submit">
-          Borrar
-        </button>
-    <button onclick="addCoutse()" class="btn btn-primary" type="submit">
-      Guardar
-    </button>
-  </div>
     </div>
   </div>
+  <div class="row mb-3 justify-content-between">
     <div class="col-6 col-xs-12">
-    <p class="h2 text-center mb-3">Actividades</p>
-    <div class="card mx-5 mb-3">
-      <div class="card-header">Datos actividades</div>
-      <div class="card-body">
-        <form action="">
-          <div class="row justify-content-center">
-            <div class="col-6 col-xs-12">
-              <label class="fw-semibold" for="nameActivities">Nombre:</label>
-              <input
-                class="form-control my-3"
-                type="text"
-                id="nameActivities"
-                name="nameActivities"
-              />
+      <p class="h2 text-center mb-3">Cursos</p>
+      <div class="card mx-5 mb-3">
+        <div class="card-header">Datos curso</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="paralel">Paralelo:</label>
+                <input class="form-control my-3" type="text" id="paralel" name="paralel" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="nameCourse">Nombre del curso:</label>
+                <input class="form-control my-3" type="text" id="nameCourse" name="nameCourse" />
+              </div>
             </div>
-          </div>
-        </form>
+            <div class="row justify-content-center">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="numberHours">Número de horas:</label>
+                <input min="0" class="form-control my-3" type="number" id="numberHours" name="numberHours" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end d-inline card-footer text-muted">
+          <button onclick="eraseData()" class="btn btn-danger" type="submit">
+            Borrar
+          </button>
+          <button onclick="addCourse()" class="btn btn-primary" type="submit">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-xs-12">
+      <p class="h2 text-center mb-3">Actividades</p>
+      <div class="card mx-5 mb-3">
+        <div class="card-header">Datos actividades</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-center">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="nameActivities">Nombre:</label>
+                <input class="form-control my-3" type="text" id="nameActivities" name="nameActivities" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end d-inline card-footer text-muted">
+          <button onclick="eraseData()" class="btn btn-danger" type="submit">
+            Borrar
+          </button>
+          <button onclick="addActivitie()" class="btn btn-primary" type="submit">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3 justify-content-between">
+    <div class="col-6 col-xs-12">
+      <p class="h2 text-center mb-3">Libro de notas</p>
+      <div class="card mx-5 mb-3">
+        <div class="card-header">Datos de libro</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="course">Curso:</label>
+                <select class="form-control my-3" name="coursegradeBook" id="coursegradeBook">
+                </select>
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="activitiegradeBook">Actividad:</label>
+                <select class="form-control my-3" name="activitiegradeBook" id="activitiegradeBook">
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="maximunGrade">Nota máxima:</label>
+                <input min="0" class="form-control my-3" type="number" id="maximunGrade" name="maximunGrade" />
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="value">Valor</label>
+                <input class="form-control my-3" type="text" id="value" name="value" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="text-end d-inline card-footer text-muted">
+          <button onclick="eraseData()" class="btn btn-danger" type="submit">
+            Borrar
+          </button>
+          <button onclick="addGradeBook()" class="btn btn-primary" type="submit">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-xs-12">
+      <p class="h2 text-center mb-3">Resumen de actividades</p>
+      <div class="card mx-5 mb-3">
+        <div class="card-header">Datos del resumen</div>
+        <div class="card-body">
+          <form action="">
+            <div class="row justify-content-between">
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="studentGradesSummary">Estudiante:</label>
+                <select class="form-control my-3" name="studentGradesSummary" id="studentGradesSummary">
+                </select>
+              </div>
+              <div class="col-6 col-xs-12">
+                <label class="fw-semibold" for="courseGradesSummary">Curso:</label>
+                <select class="form-control my-3" name="courseGradesSummary" id="courseGradesSummary">
+                </select>
+              </div>
+              <div class="row justify-content-between">
+                <div class="col-6 col-xs-12">
+                  <label class="fw-semibold" for="teacherGradesSummary">Docente:</label>
+                  <select class="form-control my-3" name="teacherGradesSummary" id="teacherGradesSummary">
+                  </select>
+                </div>
+                <div class="col-6 col-xs-12">
+                  <label class="fw-semibold" for="number">Nota final</label>
+                  <input class="form-control my-3" min="0" max="10" type="number" id="finalGrade" name="finalGrade" />
+                </div>
+              </div>
+          </form>
+        </div>
       </div>
       <div class="text-end d-inline card-footer text-muted">
-            <button onclick="eraseData()" class="btn btn-danger" type="submit">
-              Borrar
-            </button>
-        <button onclick="addActivitie()" class="btn btn-primary" type="submit">
+        <button onclick="eraseData()" class="btn btn-danger" type="submit">
+          Borrar
+        </button>
+        <button onclick="addGradeSummary()" class="btn btn-primary" type="submit">
           Guardar
         </button>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row mb-3 justify-content-between">
-  <div class="col-6 col-xs-12">
-  <p class="h2 text-center mb-3">Libro de notas</p>
-  <div class="card mx-5 mb-3">
-    <div class="card-header">Datos de libro</div>
-    <div class="card-body">
-      <form action="">
-        <div class="row justify-content-between">
-          <div class="col-6 col-xs-12">
-            <label class="fw-semibold" for="course">Curso:</label>
-            <select class="form-control my-3" name="course" id="coursegradeBook">
-            </select>
-          </div>
-          <div class="col-6 col-xs-12">
-            <label class="fw-semibold" for="activitiegradeBook">Actividad:</label>
-            <input
-              class="form-control my-3"
-              type="text"
-              id="activitiegradeBook"
-              name="activitiegradeBook"
-            />
-          </div>
-        </div>
-        <div class="row justify-content-between">
-          <div class="col-6 col-xs-12">
-            <label class="fw-semibold" for="maximunGrade"
-              >Nota máxima:</label
-            >
-            <input
-              min="0"
-              class="form-control my-3"
-              type="number"
-              id="maximunGrade"
-              name="maximunGrade"
-            />
-          </div>
-          <div class="col-6 col-xs-12">
-            <label class="fw-semibold" for="value"
-              >Valor</label
-            >
-            <input
-              class="form-control my-3"
-              type="text"
-              id="value"
-              name="value"
-            />
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="text-end d-inline card-footer text-muted">
-      <button onclick="eraseData()" class="btn btn-danger" type="submit">
-        Borrar
-      </button>
-      <button onclick="addGradeBook()" class="btn btn-primary" type="submit">
-        Guardar
-      </button>
-    </div>
+  <div class="row justify-content-center">
+    <div class="col-2 text-center"><button onclick="eraseData()" class="btn btn-danger">Borrar Datos</button></div>
   </div>
-</div>
-  
-</div>
 
-<div class="row justify-content-center">
-  <div class="col-2 text-center"><button onclick="eraseData()" class="btn btn-danger">Borrar Datos</button></div>
-</div>
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-  <script>
-    var exports = {};
-  </script>
-  <script src="./dist/main.js"></script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+</body>
+<script>
+  var exports = {};
+</script>
+<script src="./dist/main.js"></script>
+
 </html>

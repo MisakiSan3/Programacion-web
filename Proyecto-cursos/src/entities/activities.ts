@@ -1,3 +1,3 @@
 export interface Activitie {
-    nameActivities: string;
+    name: string;
 }
