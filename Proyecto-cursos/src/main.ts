@@ -11,17 +11,7 @@ let courses: Course[] = [];
 let activities: Activitie[] = [];
 let gradeBookSetups: GradeBookSetup[] = [];
 let gradesSummaries: GradesSummary[] = [];
-
-enum CourseEnum {
-  Programación = "Programación visual",
-  BaseDatos = "Base de datos",
-  Metodologias = "Metodologías",
-}
-enum AreaEnum {
-  DesarrolloSoftware = "Desarrrollo de software",
-  DiseñoModas = "Diseño de modas",
-  Marketing = "Marketing",
-}
+let areas: any[] = ["Desarrollo de software", "Diseño de modas", "Marketing"];
 
 function readFromHtml(id: string): string {
   return (<HTMLInputElement>document.getElementById(id)).value;
@@ -53,7 +43,7 @@ function addTeacher(): void {
   };
   teachers.push(currentTeacher);
 
-  initSelect("area", courses);
+  initSelect("area", areas);
 }
 
 function addCourse(): void {
