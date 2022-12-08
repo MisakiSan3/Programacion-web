@@ -11,7 +11,11 @@ let courses: Course[] = [];
 let activities: Activitie[] = [];
 let gradeBookSetups: GradeBookSetup[] = [];
 let gradesSummaries: GradesSummary[] = [];
-let areas: any[] = ["Desarrollo de software", "Diseño de modas", "Marketing"];
+let areas: any[] = [
+  { name: "Desarrollo de software" },
+  { name: "Diseño de modas" },
+  { name: "Marketing" },
+];
 
 function readFromHtml(id: string): string {
   return (<HTMLInputElement>document.getElementById(id)).value;
@@ -104,4 +108,8 @@ function addGradeSummary() {
   initSelect("studentGradesSummary", students);
   initSelect("courseGradesSummary", courses);
   initSelect("teacherGradesSummary", teachers);
+}
+
+class ReportGrade {
+  constructor(public name: string) {}
 }
