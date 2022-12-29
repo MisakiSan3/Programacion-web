@@ -26,8 +26,10 @@ function addStudent() {
     };
     students.push(currentStudent);
     console.table(students);
+    addToTable(students, 'studentsTable');
 }
 function addTeacher() {
+    initSelect("area", areas);
     let currentTeacher = {
         name: readFromHtml("nameTeacher"),
         identification: parseInt(readFromHtml("identificationTeacher")),
@@ -38,7 +40,7 @@ function addTeacher() {
         area: readFromHtml("area"),
     };
     teachers.push(currentTeacher);
-    initSelect("area", areas);
+    addToTable(teachers, 'teachersTable');
 }
 function addCourse() {
     let currentCourse = {
@@ -48,6 +50,7 @@ function addCourse() {
     };
     courses.push(currentCourse);
     console.table(courses);
+    addToTable(courses, 'coursesTable');
 }
 function addGradeBook() {
     let currentGradeBookSetup = {
@@ -60,6 +63,7 @@ function addGradeBook() {
     console.table(gradeBookSetups);
     initSelect("coursegradeBook", courses);
     initSelect("activitiegradeBook", activities);
+    addToTable(gradeBookSetups, 'gradeBookTable');
 }
 function addActivitie() {
     let currentActivitie = {
@@ -67,12 +71,13 @@ function addActivitie() {
     };
     activities.push(currentActivitie);
     console.table(activities);
+    addToTable(activities, 'activitiesTable');
 }
 function initSelect(idInput, enumerator) {
     let select = document.getElementById(idInput);
     enumerator.forEach((value) => {
         let option = document.createElement("option");
-        option.value = value;
+        option.value = value.name;
         option.text = value.name;
         select.add(option);
     });
@@ -93,9 +98,20 @@ function addGradeSummary() {
     initSelect("studentGradesSummary", students);
     initSelect("courseGradesSummary", courses);
     initSelect("teacherGradesSummary", teachers);
+    addToTable(gradesSummaries, 'activitiesSummaryTable');
 }
 class ReportGrade {
     constructor(name) {
         this.name = name;
     }
+}
+function addToTable(array, tableId) {
+    const table = document.getElementById(tableId);
+    const tableRow = table.insertRow(-1);
+    const elementValues = Object.values(array[array.length - 1]);
+    console.log(array[array.length - 1]);
+    elementValues.forEach(value => {
+        const tableCell = tableRow.insertCell(-1);
+        tableCell.innerText = value;
+    });
 }

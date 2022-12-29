@@ -64,11 +64,11 @@
               <div class="col-6 col-xs-12">
                 <label class="fw-semibold" for="careerLevel">Nivel:</label>
                 <select class="form-control my-3" name="careerLevel" id="careerLevel">
-                  <option value="primero">Primero</option>
-                  <option value="segundo">Segundo</option>
-                  <option value="tercero">Tercero</option>
-                  <option value="cuarto">Cuarto</option>
-                  <option value="quinto">Quinto</option>
+                  <option value="1">Primero</option>
+                  <option value="2">Segundo</option>
+                  <option value="3">Tercero</option>
+                  <option value="4">Cuarto</option>
+                  <option value="5">Quinto</option>
                 </select>
               </div>
             </div>
@@ -245,7 +245,7 @@
       </div>
     </div>
 
-    <div class="col-6 col-xs-12">
+    <div class="col-6 mb-3 col-xs-12">
       <p class="h2 text-center mb-3">Resumen de actividades</p>
       <div class="card mx-5 mb-3">
         <div class="card-header">Datos del resumen</div>
@@ -286,7 +286,106 @@
       </div>
     </div>
   </div>
-  <div></div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Estudiante</h3>
+      <table id="studentsTable" class="table">
+        <thead>
+          <th>Nombre</th>
+          <th>Cedula</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>Numero Matricula</th>
+          <th>Carrera</th>
+          <th>Nivel</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Docente</h3>
+      <table id="teachersTable" class="table">
+        <thead>
+          <th>Nombre</th>
+          <th>Cedula</th>
+          <th>Email</th>
+          <th>Dirección</th>
+          <th>Nivel de educación</th>
+          <th>Titulo</th>
+          <th>Área</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Cursos</h3>
+      <table id="coursesTable" class="table">
+        <thead>
+          <th>Paralelo</th>
+          <th>Curso</th>
+          <th>Horas</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Actividades</h3>
+      <table id="activitiesTable" class="table">
+        <thead>
+          <th>Nombre</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Libro de notas</h3>
+      <table id="gradeBookTable" class="table">
+        <thead>
+          <th>Curso</th>
+          <th>Actividad</th>
+          <th>Nota máxima</th>
+          <th>Valor</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3 row justify-content-center">
+    <div class="col-8">
+      <h3 class="mb-3">Resumen de actividades</h3>
+      <table id="activitiesSummaryTable" class="table">
+        <thead>
+          <th>Estudiante</th>
+          <th>Curso</th>
+          <th>Docente</th>
+          <th>Nota final</th>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  
 
   
 

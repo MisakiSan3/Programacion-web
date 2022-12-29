@@ -33,9 +33,11 @@ function addStudent(): void {
   };
   students.push(currentStudent);
   console.table(students);
+  addToTable(students,'studentsTable');
 }
 
 function addTeacher(): void {
+  initSelect("area", areas);
   let currentTeacher: Teacher = {
     name: readFromHtml("nameTeacher"),
     identification: parseInt(readFromHtml("identificationTeacher")),
@@ -46,8 +48,7 @@ function addTeacher(): void {
     area: readFromHtml("area"),
   };
   teachers.push(currentTeacher);
-
-  initSelect("area", areas);
+  addToTable(teachers,'teachersTable')
 }
 
 function addCourse(): void {
@@ -58,6 +59,7 @@ function addCourse(): void {
   };
   courses.push(currentCourse);
   console.table(courses);
+  addToTable(courses,'coursesTable')
 }
 
 function addGradeBook(): void {
@@ -71,6 +73,7 @@ function addGradeBook(): void {
   console.table(gradeBookSetups);
   initSelect("coursegradeBook", courses);
   initSelect("activitiegradeBook", activities);
+  addToTable(gradeBookSetups,'gradeBookTable')
 }
 
 function addActivitie(): void {
@@ -79,13 +82,14 @@ function addActivitie(): void {
   };
   activities.push(currentActivitie);
   console.table(activities);
+  addToTable(activities,'activitiesTable')
 }
 
 function initSelect(idInput: string, enumerator: any[]): void {
   let select = document.getElementById(idInput) as HTMLSelectElement;
   enumerator.forEach((value) => {
     let option = document.createElement("option");
-    option.value = value;
+    option.value = value.name;
     option.text = value.name;
     select.add(option);
   });
@@ -108,8 +112,21 @@ function addGradeSummary() {
   initSelect("studentGradesSummary", students);
   initSelect("courseGradesSummary", courses);
   initSelect("teacherGradesSummary", teachers);
+  addToTable(gradesSummaries,'activitiesSummaryTable')
 }
 
 class ReportGrade {
   constructor(public name: string) {}
+}
+
+function addToTable(array: any[], tableId: string){
+  const table = document.getElementById(tableId) as HTMLTableElement
+    const tableRow = table.insertRow(-1)
+    const elementValues: any[] = Object.values(array[array.length -1])
+    console.log(array[array.length -1])
+    elementValues.forEach(value => {
+      const tableCell  = tableRow.insertCell(-1)
+      tableCell.innerText =   value
+    });
+
 }
