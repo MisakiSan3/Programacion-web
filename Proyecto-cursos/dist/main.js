@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let students = [];
 let teachers = [];
 let courses = [];
+let grades = [];
 let activities = [];
 let gradeBookSetups = [];
 let gradesSummaries = [];
+let reports = [];
 let areas = [
     { name: "Desarrollo de software" },
     { name: "Diseño de modas" },
@@ -25,8 +27,6 @@ function addStudent() {
         carrerLevel: parseInt(readFromHtml("careerLevel")),
     };
     students.push(currentStudent);
-    console.table(students);
-    addToTable(students, 'studentsTable');
 }
 function addTeacher() {
     initSelect("area", areas);
@@ -40,7 +40,6 @@ function addTeacher() {
         area: readFromHtml("area"),
     };
     teachers.push(currentTeacher);
-    addToTable(teachers, 'teachersTable');
 }
 function addCourse() {
     let currentCourse = {
@@ -50,28 +49,23 @@ function addCourse() {
     };
     courses.push(currentCourse);
     console.table(courses);
-    addToTable(courses, 'coursesTable');
 }
 function addGradeBook() {
     let currentGradeBookSetup = {
         course: readFromHtml("coursegradeBook"),
         activitie: readFromHtml("activitiegradeBook"),
-        value: readFromHtml("value"),
+        name: readFromHtml("value"),
         maximunGrade: parseInt(readFromHtml("maximunGrade")),
     };
     gradeBookSetups.push(currentGradeBookSetup);
-    console.table(gradeBookSetups);
     initSelect("coursegradeBook", courses);
     initSelect("activitiegradeBook", activities);
-    addToTable(gradeBookSetups, 'gradeBookTable');
 }
 function addActivitie() {
     let currentActivitie = {
         name: readFromHtml("nameActivities"),
     };
     activities.push(currentActivitie);
-    console.table(activities);
-    addToTable(activities, 'activitiesTable');
 }
 function initSelect(idInput, enumerator) {
     let select = document.getElementById(idInput);
@@ -94,24 +88,80 @@ function addGradeSummary() {
         finalGrade: parseInt(readFromHtml("finalGrade")),
     };
     gradesSummaries.push(currentGradeSummary);
-    console.table(gradesSummaries);
     initSelect("studentGradesSummary", students);
     initSelect("courseGradesSummary", courses);
     initSelect("teacherGradesSummary", teachers);
-    addToTable(gradesSummaries, 'activitiesSummaryTable');
 }
-class ReportGrade {
-    constructor(name) {
-        this.name = name;
-    }
+function addGrade() {
+    initSelect("gradesBook", gradeBookSetups);
+    initSelect("studentGrade", students);
+    let currentGrade = {
+        student: readFromHtml("studentGrade"),
+        gradesBook: readFromHtml("gradesBook"),
+        grade: parseInt(readFromHtml("grade")),
+    };
+    generateReport(currentGrade);
+    grades.push(currentGrade);
+}
+function generateReport(grade) {
+    let currentStudent;
+    let currentGradeBook;
+    let currentCourse;
+    let currentGradeSummary;
+    students.forEach(student => {
+        if (grade.student === student.name) {
+            currentStudent = student;
+        }
+    });
+    gradeBookSetups.forEach(gradeBook => {
+        if (grade.gradesBook === gradeBook.name) {
+            currentGradeBook = gradeBook;
+        }
+    });
+    courses.forEach(course => {
+        if (course.name === currentGradeBook.course) {
+            currentCourse = course;
+        }
+    });
+    gradesSummaries.forEach(gradeSummary => {
+        if (currentStudent.name === gradeSummary.studentGradesSummary && currentGradeBook.course === gradeSummary.courseGradesSummary) {
+            currentGradeSummary = gradeSummary;
+        }
+    });
+    let currentReport = {
+        enrollment: currentStudent.enrollment,
+        name: currentStudent.name,
+        identification: currentStudent.identification,
+        gmail: currentStudent.gmail,
+        adress: currentStudent.adress,
+        carrer: currentStudent.carrer,
+        paralel: currentCourse.paralel,
+        carrerLevel: currentStudent.carrerLevel,
+        course: currentGradeBook.course,
+        teacher: currentGradeSummary.teacherGradesSummary,
+        numberHours: currentCourse.numberHours,
+        activitie: currentGradeBook.activitie,
+        finalGrade: currentGradeSummary.finalGrade,
+        maximunGrade: currentGradeBook.maximunGrade,
+        courseGradesSummary: currentGradeBook.course,
+        studentGradesSummary: grade.student,
+        teacherGradesSummary: currentGradeSummary.teacherGradesSummary,
+    };
+    reports.push(currentReport);
+    console.table(reports);
+    addToTable(reports, 'reportTable');
 }
 function addToTable(array, tableId) {
+    let i = 0;
     const table = document.getElementById(tableId);
     const tableRow = table.insertRow(-1);
     const elementValues = Object.values(array[array.length - 1]);
     console.log(array[array.length - 1]);
     elementValues.forEach(value => {
-        const tableCell = tableRow.insertCell(-1);
-        tableCell.innerText = value;
+        if (i < elementValues.length - 3) {
+            const tableCell = tableRow.insertCell(-1);
+            tableCell.innerText = value;
+        }
+        i++;
     });
 }

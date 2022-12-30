@@ -4,13 +4,17 @@ import { Course } from "./entities/course";
 import { Activitie } from "./entities/activities";
 import { GradeBookSetup } from "./entities/gradeBookSetup";
 import { GradesSummary } from "./entities/gradesSummary";
+import { Grade } from "./entities/grade.entity";
+import { ReportGradeDTO } from "./entities/generateReportDTO";
 
 let students: Student[] = [];
 let teachers: Teacher[] = [];
 let courses: Course[] = [];
+let grades: Grade[] = [];
 let activities: Activitie[] = [];
 let gradeBookSetups: GradeBookSetup[] = [];
 let gradesSummaries: GradesSummary[] = [];
+let reports: ReportGradeDTO[] = [];
 let areas: any[] = [
   { name: "Desarrollo de software" },
   { name: "Diseño de modas" },
@@ -32,8 +36,6 @@ function addStudent(): void {
     carrerLevel: parseInt(readFromHtml("careerLevel")),
   };
   students.push(currentStudent);
-  console.table(students);
-  addToTable(students,'studentsTable');
 }
 
 function addTeacher(): void {
@@ -48,7 +50,6 @@ function addTeacher(): void {
     area: readFromHtml("area"),
   };
   teachers.push(currentTeacher);
-  addToTable(teachers,'teachersTable')
 }
 
 function addCourse(): void {
@@ -57,23 +58,20 @@ function addCourse(): void {
     name: readFromHtml("nameCourse"),
     paralel: readFromHtml("paralel"),
   };
-  courses.push(currentCourse);
+  courses.push(currentCourse)
   console.table(courses);
-  addToTable(courses,'coursesTable')
 }
 
 function addGradeBook(): void {
   let currentGradeBookSetup: GradeBookSetup = {
     course: readFromHtml("coursegradeBook"),
     activitie: readFromHtml("activitiegradeBook"),
-    value: readFromHtml("value"),
+    name: readFromHtml("value"),
     maximunGrade: parseInt(readFromHtml("maximunGrade")),
   };
   gradeBookSetups.push(currentGradeBookSetup);
-  console.table(gradeBookSetups);
   initSelect("coursegradeBook", courses);
   initSelect("activitiegradeBook", activities);
-  addToTable(gradeBookSetups,'gradeBookTable')
 }
 
 function addActivitie(): void {
@@ -81,8 +79,6 @@ function addActivitie(): void {
     name: readFromHtml("nameActivities"),
   };
   activities.push(currentActivitie);
-  console.table(activities);
-  addToTable(activities,'activitiesTable')
 }
 
 function initSelect(idInput: string, enumerator: any[]): void {
@@ -108,25 +104,87 @@ function addGradeSummary() {
     finalGrade: parseInt(readFromHtml("finalGrade")),
   };
   gradesSummaries.push(currentGradeSummary);
-  console.table(gradesSummaries);
   initSelect("studentGradesSummary", students);
   initSelect("courseGradesSummary", courses);
   initSelect("teacherGradesSummary", teachers);
-  addToTable(gradesSummaries,'activitiesSummaryTable')
 }
 
-class ReportGrade {
-  constructor(public name: string) {}
+function addGrade() {
+  initSelect("gradesBook", gradeBookSetups);
+  initSelect("studentGrade", students);
+  let currentGrade: Grade = {
+    student: readFromHtml("studentGrade"),
+    gradesBook: readFromHtml("gradesBook"),
+    grade: parseInt(readFromHtml("grade")),
+  };
+  generateReport(currentGrade)
+  grades.push(currentGrade);
+ 
 }
+function generateReport(grade: Grade){
+  let currentStudent: any;
+  let currentGradeBook: any;
+  let currentCourse: any;
+  let currentGradeSummary: any;
+  students.forEach(student => {
+    if (grade.student === student.name) {
+      currentStudent = student
+    }
+  });
+  gradeBookSetups.forEach(gradeBook => {
+    if (grade.gradesBook === gradeBook.name) {
+      currentGradeBook = gradeBook
+    }
+  });
+  courses.forEach(course => {
+    if (course.name === currentGradeBook.course) {
+      currentCourse = course
+    }
+  });
+  gradesSummaries.forEach(gradeSummary => {
+    if (currentStudent.name === gradeSummary.studentGradesSummary && currentGradeBook.course === gradeSummary.courseGradesSummary) {
+      currentGradeSummary = gradeSummary
+    }
+  });
+  let currentReport: ReportGradeDTO = {
+    enrollment: currentStudent.enrollment,
+    name: currentStudent.name,
+    identification: currentStudent.identification,
+    gmail: currentStudent.gmail,
+    adress: currentStudent.adress,
+    carrer: currentStudent.carrer,
+    paralel: currentCourse.paralel,
+    carrerLevel: currentStudent.carrerLevel,
+    course: currentGradeBook.course,
+    teacher: currentGradeSummary.teacherGradesSummary,
+    numberHours: currentCourse.numberHours,
+    activitie: currentGradeBook.activitie,
+    finalGrade: currentGradeSummary.finalGrade,
+    maximunGrade: currentGradeBook.maximunGrade,
+    courseGradesSummary: currentGradeBook.course,
+    studentGradesSummary: grade.student,
+    teacherGradesSummary: currentGradeSummary.teacherGradesSummary,
+
+  }
+  reports.push(currentReport);
+  console.table(reports)
+  addToTable(reports,'reportTable')
+}
+
+
 
 function addToTable(array: any[], tableId: string){
+  let i: number = 0;
   const table = document.getElementById(tableId) as HTMLTableElement
     const tableRow = table.insertRow(-1)
     const elementValues: any[] = Object.values(array[array.length -1])
     console.log(array[array.length -1])
     elementValues.forEach(value => {
-      const tableCell  = tableRow.insertCell(-1)
-      tableCell.innerText =   value
+      if (i < elementValues.length -3 ) {
+        const tableCell  = tableRow.insertCell(-1)
+        tableCell.innerText =   value
+      }
+      i++
     });
 
 }
