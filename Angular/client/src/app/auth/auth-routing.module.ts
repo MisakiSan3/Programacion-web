@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { NoFoundPagesComponent } from '../not-found-pages/no-found-pages.component';
 
 const Routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: '**', component: NoFoundPagesComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
