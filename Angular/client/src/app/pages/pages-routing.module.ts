@@ -5,22 +5,22 @@ import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AuthModule } from '../auth/auth.module';
 
 const Routes: Routes = [
   {
-    path: '', component: PagesComponent,
+    path: 'dashboard', component: PagesComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent},
+      { path: '', component: DashboardComponent},
       { path: 'category', component: CategoryComponent },
-      { path: 'product', component: ProductComponent }
+      { path: 'product', component: ProductComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
     ]
   }  
 ];
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forChild(Routes),AuthModule],
+  imports: [CommonModule, RouterModule.forChild(Routes)],
   exports: [RouterModule],
 })
 export class PagesRoutingModule {}

@@ -10,7 +10,7 @@ const Routes: Routes = [
   { path: '**', component: NoFoundPagesComponent },
 ];
 
-@NgModule({
+@NgModule({       
   declarations: [],
   imports: [
     CommonModule,
