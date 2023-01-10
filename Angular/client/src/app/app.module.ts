@@ -8,14 +8,15 @@ import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesComponent } from './pages/pages.component';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    PagesComponent,
-    NoFoundPagesComponent,
+  declarations: [AppComponent, PagesComponent, NoFoundPagesComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    PagesModule,
+    SharedModule,
   ],
-  imports: [BrowserModule,AppRoutingModule,AuthModule,PagesModule,SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
