@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesComponent } from './pages/pages.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, PagesComponent, NoFoundPagesComponent],
@@ -16,8 +17,9 @@ import { PagesComponent } from './pages/pages.component';
     AuthModule,
     PagesModule,
     SharedModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
