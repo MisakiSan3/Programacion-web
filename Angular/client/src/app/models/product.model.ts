@@ -1,9 +1,19 @@
-import { CategoryModel } from "./category.model";
+import { CategoryModel } from './category.model';
 
 export interface ProductModel {
-    title: string,
-    price: number,
-    description: string,
-    images: string[],
-    categoryId: CategoryModel,
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  images: string[];
+  category: CategoryModel;
+}
+
+export interface CreateProductModel
+  extends Omit<ProductModel, 'id' | 'category'> {
+  categoryId: number;
+}
+
+export interface updateProductModel extends Partial<ProductModel> {
+  categoryId?: number;
 }

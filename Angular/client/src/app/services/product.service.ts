@@ -1,58 +1,43 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable,inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import {
+  CreateProductModel,
+  ProductModel,
+  updateProductModel,
+} from '../models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  url: string = 'https://api.escuelajs.co/api/v1/products';
-  private httpClient = inject(HttpClient)
-  constructor() { }
-  data = {
-    title: 'Libros',
-    price: 14,
-    description: 'Halo Image / Isak Gómez',
-    images: ["https://sm.ign.com/ign_es/screenshot/default/analisis-halo-infinite_cjdd.jpg"],
-    categoryId: 1,
-  };
-  getProducts() {
-    const response = this.httpClient
-      .get(this.url)
-      .subscribe(response => {
-        console.log(response);
-      });
+  readonly Api_url: string = 'https://api.escuelajs.co/api/v1/products';
+  private httpClient = inject(HttpClient);
+  constructor() {}
+
+  getAll(): Observable<ProductModel[]> {
+    const url = `${this.Api_url}`;
+    const response = this.httpClient.get<ProductModel[]>(url);
+    return response;
   }
-  createProduct() {
-    const response = this.httpClient
-      .post(this.url,this.data)
-      .subscribe(response => {
-        console.log(response);
-      });
+  store(producto: CreateProductModel) {
+    const url = `${this.Api_url}`;
+    const response = this.httpClient.post(url, producto);
+    return response;
   }
-  updateProduct() {
-    const urlID = this.url + '/278'
-    const response = this.httpClient
-      .put(urlID,this.data)
-      .subscribe(response => {
-        console.log(response);
-      });
+  update(id: ProductModel['id'], producto: updateProductModel) {
+    const url = `${this.Api_url}/${id}`;
+    const response = this.httpClient.put(url, producto);
+    return response;
   }
-  getProduct() {
-    const id = '/36'
-    const urlId = this.url + id
-    const response = this.httpClient
-      .get(urlId)
-      .subscribe(response  => {
-        console.log(response);
-      });
+  getOne(id: ProductModel['id']): Observable<ProductModel> {
+    const url = `${this.Api_url}/${id}`;
+    const response = this.httpClient.get<ProductModel>(url);
+    return response;
   }
-  deleteProduct() {
-    const id = '/278'
-    const urlId = this.url + id
-    const response = this.httpClient
-      .delete(urlId)
-      .subscribe(response  => {
-        console.log(response);
-      });
+  destroy(id: ProductModel['id']) {
+    const url = `${this.Api_url}/${id}`;
+    const response = this.httpClient.delete(url);
+    return response;
   }
 }
