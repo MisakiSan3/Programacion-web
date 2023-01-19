@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
+import { ProductModel,updateProductModel } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductComponent implements OnInit {
   private productService = inject(ProductService);
+  productList: ProductModel[] = [];
+  selectedProduct: updateProductModel = {}
   constructor() {}
 
   data = {
@@ -22,14 +25,14 @@ export class ProductComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.productService.getAll();
+    this.getProducts();
     //this.productService.getProduct();
     //this.productService.createProduct();
     //this.productService.updateProduct();
-    //this.productService.deleteProduct()
   }
-  getProducts() {
+  async getProducts(){
     const response = this.productService.getAll().subscribe((response) => {
+      this.productList = response;
       console.log(response);
     });
   }
@@ -45,16 +48,18 @@ export class ProductComponent implements OnInit {
         console.log(response);
       });
   }
-  updateProduct() {
+  updateProduct(product: ProductModel) {
     const response = this.productService
-      .update(7, this.data)
+      .update(product.id, product)
       .subscribe((response) => {
         console.log(response);
       });
   }
-  deleteProduct() {
-    const response = this.productService.destroy(7).subscribe((response) => {
+  deleteProduct(id: number) {
+    const response = this.productService.destroy(id).subscribe((response) => {
+      this.productList = this.productList.filter(product => product.id != id)
       console.log(response);
     });
   }
+
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import {
   CreateProductModel,
   ProductModel,
@@ -20,14 +20,14 @@ export class ProductService {
     const response = this.httpClient.get<ProductModel[]>(url);
     return response;
   }
-  store(producto: CreateProductModel) {
+  store(producto: CreateProductModel):Observable<CreateProductModel>{
     const url = `${this.Api_url}`;
-    const response = this.httpClient.post(url, producto);
+    const response = this.httpClient.post<CreateProductModel>(url, producto);
     return response;
   }
-  update(id: ProductModel['id'], producto: updateProductModel) {
+  update(id: ProductModel['id'], producto: updateProductModel):Observable<updateProductModel> {
     const url = `${this.Api_url}/${id}`;
-    const response = this.httpClient.put(url, producto);
+    const response = this.httpClient.put<updateProductModel>(url, producto);
     return response;
   }
   getOne(id: ProductModel['id']): Observable<ProductModel> {
@@ -35,9 +35,11 @@ export class ProductService {
     const response = this.httpClient.get<ProductModel>(url);
     return response;
   }
-  destroy(id: ProductModel['id']) {
+  destroy(id: ProductModel['id']): Observable<boolean> {
     const url = `${this.Api_url}/${id}`;
-    const response = this.httpClient.delete(url);
+    const response = this.httpClient.delete<any>(url).pipe(map((response:{rta: boolean})=>{
+      return response.rta
+    }));
     return response;
   }
 }
