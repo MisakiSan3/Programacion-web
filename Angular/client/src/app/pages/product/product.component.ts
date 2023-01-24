@@ -11,7 +11,8 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit {
   private productService = inject(ProductService);
   productList: ProductModel[] = [];
-  selectedProduct: updateProductModel = {}
+  selectedProduct: updateProductModel = {id: 0, title:"", description:"",price:0, images:[], category: {id:0,name:""}}
+
   constructor() {}
 
   data = {
@@ -48,18 +49,22 @@ export class ProductComponent implements OnInit {
         console.log(response);
       });
   }
-  updateProduct(product: ProductModel) {
+  updateProduct(product: updateProductModel) {
     const response = this.productService
       .update(product.id, product)
       .subscribe((response) => {
         console.log(response);
       });
+      this.getProducts()
   }
   deleteProduct(id: number) {
     const response = this.productService.destroy(id).subscribe((response) => {
       this.productList = this.productList.filter(product => product.id != id)
       console.log(response);
     });
+  }
+  editProduct(product: ProductModel){
+    this.selectedProduct = product;
   }
 
 }

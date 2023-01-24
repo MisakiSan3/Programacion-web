@@ -25,7 +25,7 @@ export class ProductService {
     const response = this.httpClient.post<CreateProductModel>(url, producto);
     return response;
   }
-  update(id: ProductModel['id'], producto: updateProductModel):Observable<updateProductModel> {
+  update(id: updateProductModel['id'], producto: updateProductModel):Observable<updateProductModel> {
     const url = `${this.Api_url}/${id}`;
     const response = this.httpClient.put<updateProductModel>(url, producto);
     return response;
