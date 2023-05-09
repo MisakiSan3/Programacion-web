@@ -8,6 +8,7 @@ import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 import { PagesComponent } from './pages/pages.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { WebModule } from './web/web.module';
 
 @NgModule({
   declarations: [AppComponent, PagesComponent, NoFoundPagesComponent],
@@ -16,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     AuthModule,
     PagesModule,
+    WebModule,
     SharedModule,
     HttpClientModule
   ],
