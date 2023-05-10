@@ -5,7 +5,7 @@ import {
   CreateProductModel,
   ProductModel,
   updateProductModel,
-} from '../models/product.model';
+} from '../models/product-model';
 
 @Injectable({
   providedIn: 'root',
