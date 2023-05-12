@@ -8,6 +8,7 @@ export interface ProductModel {
 }
 export interface CreateProductModel extends  Omit<ProductModel, 'id'|'category'>{
  categoryId: number;
+ images: String[]
 }
 
 export interface updateProductModel extends Partial<ProductModel>{

@@ -15,27 +15,49 @@ export class ProductComponent implements OnInit {
  constructor(private productHttpService:ProductService) {
   this.editProduct();
  }
-  data: CreateProductModel = {
-  title: 'esfero',
-  price: 45,
-  description: 'utiles escolares',
-  categoryId: 1,
- // images: ["https://api.lorem.space/image/watch?w=640&h=480&r=5922", "https://api.lorem.space/image/watch?w=640&h=480&r=3622"],
-}
+ 
  dataUP: updateProductModel = {
   title: 'zapatos',
   price: 60,
   description: 'calzado',
 }
-
+data: CreateProductModel = {
+  title: 'esfero',
+  price: 45,
+  description: 'utiles escolares',
+  categoryId: 1,
+  images: ["https://api.lorem.space/image/watch?w=640&h=480&r=5922", "https://api.lorem.space/image/watch?w=640&h=480&r=3622"],
+}
  ngOnInit(): void {
-   this.getProducts();
-   //this.getProduct();
-   //this.createProduct();
-   //this.updateProduct();
-   //this.deleteProduct();
+   //this.getProducts();
+   //this.getProduct(304);
+   //this.createProduct(this.data);
+   //this.updateProduct(461,this.dataUP);
+   this.deleteProduct(461);
  }
-
+ deleteProduct(id: ProductModel['id']){
+  this.productHttpService.destroy(id).subscribe(
+    response =>{
+      this.products = this.products.filter(product => product.id != id);
+      console.log(response);
+    }
+  )
+}
+ createProduct(data: CreateProductModel){
+  this.productHttpService.store(data).subscribe(
+    response =>{
+      console.log(response);
+    }
+  )
+}
+ getProduct(id: ProductModel['id'] ){
+  const url = "https://api.escuelajs.co/api/v1/products/id";
+  return this.productHttpService.getOne(id).subscribe(
+    response =>{
+      console.log(response);
+    }
+  )
+}
  getProducts(){
    const url = "https://api.escuelajs.co/api/v1/products";
    this.productHttpService.getAll().subscribe(
@@ -45,21 +67,8 @@ export class ProductComponent implements OnInit {
      }
    )
  }
- getProduct(id: ProductModel['id'] ){
-   const url = "https://api.escuelajs.co/api/v1/products/id";
-   return this.productHttpService.getOne(id).subscribe(
-     response =>{
-       console.log(response);
-     }
-   )
- }
- createProduct(data: CreateProductModel){
-   this.productHttpService.store(data).subscribe(
-     response =>{
-       console.log(response);
-     }
-   )
- }
+ 
+ 
  updateProduct(id: ProductModel['id'],data: updateProductModel){
    this.productHttpService.update(id, data).subscribe(
      response =>{
@@ -71,13 +80,6 @@ export class ProductComponent implements OnInit {
    this.selectedProduct = {title:'', price:0, description:''};
  }
 
- deleteProduct(id: ProductModel['id']){
-   this.productHttpService.destroy(id).subscribe(
-     response =>{
-       this.products = this.products.filter(product => product.id != id);
-       console.log(response);
-     }
-   )
- }
+ 
 
 }
