@@ -5,10 +5,10 @@ export interface ProductModel {
   price: number;
   description: string;
   category: CategoryModel;
+  images: string[];
 }
 export interface CreateProductModel extends  Omit<ProductModel, 'id'|'category'>{
  categoryId: number;
- images: String[]
 }
 
 export interface updateProductModel extends Partial<ProductModel>{

@@ -1,1 +1,84 @@
-<p>Product component works!</p>
+
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div class="col-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Título</label>
+              <input type="text"
+                class="form-control" name="productTitle" id="productTitle" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Categoria</label>
+              <input type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-evenly">
+        <div class="col-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Precio</label>
+              <input type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Descripción</label>
+              <input type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive-lg">
+    <table class="table table-striped-columns
+    table-hover	
+    table-borderless
+    table-primary
+    align-middle">
+        <thead class="table-light">
+            <caption>Productos</caption>
+            <tr>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Imagen
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Descripción
+                </th>
+                <th>Acción</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let product of products" class="table-primary" >
+                    <td  scope="row">{{product.title}}</td>
+                    <td><img width="250" height="250" src={{product.images}} alt="productImage">
+                        </td>
+                    <td>{{product.category.name}}</td>
+                    <td>{{product.price}}$</td>
+                    <td>{{product.description}}</td>
+                    <td><button class="btn btn-primary" (click)="deleteProduct(product.id)">Eliminar</button></td>
+                    <td><button class="btn btn-primary" (click)="updateProduct(product.id,product)">Actualizar</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+    </table>
+</div>
+

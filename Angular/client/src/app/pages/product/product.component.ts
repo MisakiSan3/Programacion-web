@@ -29,11 +29,20 @@ data: CreateProductModel = {
   images: ["https://api.lorem.space/image/watch?w=640&h=480&r=5922", "https://api.lorem.space/image/watch?w=640&h=480&r=3622"],
 }
  ngOnInit(): void {
-   //this.getProducts();
+   this.getProducts();
    //this.getProduct(304);
    //this.createProduct(this.data);
    //this.updateProduct(461,this.dataUP);
-   this.deleteProduct(461);
+   //this.deleteProduct(461);
+ }
+ getProducts(){
+   const url = "https://api.escuelajs.co/api/v1/products";
+   this.productHttpService.getAll().subscribe(
+     response =>{
+       this.products = response;
+       console.log(response);
+     }
+   )
  }
  deleteProduct(id: ProductModel['id']){
   this.productHttpService.destroy(id).subscribe(
@@ -58,15 +67,7 @@ data: CreateProductModel = {
     }
   )
 }
- getProducts(){
-   const url = "https://api.escuelajs.co/api/v1/products";
-   this.productHttpService.getAll().subscribe(
-     response =>{
-       this.products = response;
-       console.log(response);
-     }
-   )
- }
+ 
  
  
  updateProduct(id: ProductModel['id'],data: updateProductModel){
