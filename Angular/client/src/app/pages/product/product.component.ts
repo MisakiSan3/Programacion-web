@@ -10,16 +10,16 @@ import {ProductModel,CreateProductModel,updateProductModel} from '../../models/p
 })
 export class ProductComponent implements OnInit {
   products:ProductModel[] = [];
-  selectedProduct: updateProductModel = {title:'', price:0, description:''};
+  selectedProduct: updateProductModel = {id: 0,title:'', price:0, description:''};
 
  constructor(private productHttpService:ProductService) {
-  this.editProduct();
  }
  
  dataUP: updateProductModel = {
   title: 'zapatos',
   price: 60,
   description: 'calzado',
+  id: 0,
 }
 data: CreateProductModel = {
   title: 'esfero',
@@ -34,6 +34,12 @@ data: CreateProductModel = {
    //this.createProduct(this.data);
    //this.updateProduct(461,this.dataUP);
    //this.deleteProduct(461);
+ }
+
+ selectProduct(product: ProductModel){
+  this.selectedProduct = product;
+  console.log(this.selectedProduct);
+  
  }
  getProducts(){
    const url = "https://api.escuelajs.co/api/v1/products";
@@ -71,14 +77,11 @@ data: CreateProductModel = {
  
  
  updateProduct(id: ProductModel['id'],data: updateProductModel){
-   this.productHttpService.update(id, data).subscribe(
+   this.productHttpService.update(this.selectedProduct.id, this.selectedProduct).subscribe(
      response =>{
        console.log(response);
      }
    )
- }
- editProduct(){
-   this.selectedProduct = {title:'', price:0, description:''};
  }
 
  

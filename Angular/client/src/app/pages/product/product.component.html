@@ -3,37 +3,31 @@
     <div class="row justify-content-evenly">
         <div class="col-6">
             <div class="mb-3">
-              <label for="" class="form-label">Título</label>
-              <input type="text"
+              <label for="productTitle" class="form-label">Título</label>
+              <input [(ngModel)]="selectedProduct.title" type="text"
                 class="form-control" name="productTitle" id="productTitle" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">Help text</small>
             </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
-              <label for="" class="form-label">Categoria</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
+                <label for="price" class="form-label">Precio</label>
+                <input [(ngModel)]="selectedProduct.price" type="text"
+                  class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="">
+              </div>
         </div>
     </div>
     <div class="row justify-content-evenly">
         <div class="col-6">
             <div class="mb-3">
-              <label for="" class="form-label">Precio</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
+                <label  for="description" class="form-label">Descripción</label>
+                <input [(ngModel)]="selectedProduct.description" type="text"
+                  class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="">
+              </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
-              <label for="" class="form-label">Descripción</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">Help text</small>
-            </div>
+                  <button class="btn btn-primary"(click)="updateProduct(selectedProduct.id,selectedProduct)">Actualizar</button>
+              </div>
         </div>
     </div>
 </div>
@@ -74,7 +68,7 @@
                     <td>{{product.price}}$</td>
                     <td>{{product.description}}</td>
                     <td><button class="btn btn-primary" (click)="deleteProduct(product.id)">Eliminar</button></td>
-                    <td><button class="btn btn-primary" (click)="updateProduct(product.id,product)">Actualizar</button></td>
+                    <td><button class="btn btn-primary" (click)="selectProduct(product)">Actualizar</button></td>
                 </tr>
             </tbody>
             <tfoot>
